@@ -128,9 +128,9 @@ sr1(IP(dst="<DST.IP>")/TCP(dport=80,flags="S",options=[('Timestamp',(0,0))]))
 ### (16) OS FINGERPRINTING ###
 ##############################
 
-#########################################
-#	a) ISN: Initial Sequence Number     	#
-#########################################
+#############################################
+#	a) ISN: Initial Sequence Number     #
+#############################################
 ###					- Scapy can be used to analyze ISN-Increments to discover vulnerable systems
 ###						1st) Collect TARGET-Responses, via:	Sending TCP[Flag=SYN] Packets in a loop for probing
 ans, unans = srloop(IP(dst="192.168.1.1")/TCP(dport=80,flags="S"))
@@ -141,17 +141,17 @@ for s, r in ans:
 	temp = r[TCP].seq - temp
 	print("%d\t+%d" % (r[TCP].seq, temp))
 
-####################
+##########################
 #	b) nmap_fp       #
-####################
+##########################
 ###						1st) Ensure nmap-extension module is loaded
 load_module("nmap")
 ###						2nd) Ensure nmap-signature-database is located in the correct path, as indicated by the command below
 conf.nmap_base
 
-################
+######################
 #	c) p0f       #
-################
+######################
 #					- IF: 'p0f' is installed on system, we can use it to guess OS-Name & OS-Version from Scapy (uses SYN-DB)
 ###						1st) Ensure 'p0f'-DB exists in the path as indicated by the command below
 conf.p0f_base
