@@ -9,7 +9,7 @@ from scapy.all import *
 
 pictures_directory = "/home/<home_dir>/pic_carver/pictures"
 faces_directory = "/home/<home_dir>/pic_carver/faces"
-pcap_file = "bhp.pcap"
+pcap_file = "tcp_image_parser.pcap"
 
 def http_assembler(pcap_file):
 	carved_images = 0
